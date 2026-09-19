@@ -8,12 +8,21 @@ import jakarta.validation.constraints.NotBlank;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/admin/commission/runs")
 @Validated
 public class CommissionRunAdminController {
     private final CommissionCalculationService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public CommissionRunAdminController(CommissionCalculationService service){this.service=service;}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/{id}/approve") ApiResponse<CommissionRun> approve(@PathVariable Long id,
         @RequestParam @NotBlank String remark){return ApiResponse.ok(service.approve(id,remark));}
 }

@@ -2,21 +2,51 @@
 package cn.zhuatech.commission.domain;
 import org.springframework.stereotype.Component;
 import java.util.*;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Component
 public class DomainCatalog {
     private final Map<String, WorkflowAction> actions = new LinkedHashMap<>();
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public DomainCatalog() {
         actions.put("CALCULATE", new WorkflowAction("CALCULATE", "提交佣金计算", List.of("草稿"), "待复核", "OPERATOR"));
         actions.put("APPROVE", new WorkflowAction("APPROVE", "批准佣金结果", List.of("待复核"), "待发放", "ADMIN"));
         actions.put("PAY", new WorkflowAction("PAY", "确认佣金发放", List.of("待发放"), "已发放", "ADMIN"));
     }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String systemName() { return "知华科技企业佣金与销售激励管理系统"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String scene() { return "激励方案、适用资格、目标、交易归属、佣金计算、调整、审批、发放与追索"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String initialStatus() { return "草稿"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String partyLabel() { return "销售人员/渠道"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String amountLabel() { return "佣金金额"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String quantityLabel() { return "业绩笔数"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String dueLabel() { return "发放日期"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public List<ModuleDefinition> modules() { return List.of(
             new ModuleDefinition("PLAN", "激励方案", "配置适用期间、产品、区域、角色、阶梯和封顶规则"),
             new ModuleDefinition("ELIGIBILITY", "资格管理", "维护人员、岗位、在职状态和方案适用资格"),
@@ -28,7 +58,16 @@ public class DomainCatalog {
             new ModuleDefinition("PAYOUT", "发放管理", "生成发放批次并对接薪资、应付或渠道结算"),
             new ModuleDefinition("CLAWBACK_AUDIT", "追索审计", "对退单、坏账和违规交易执行追索并保留证据")
         ); }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Map<String, WorkflowAction> actions() { return Collections.unmodifiableMap(actions); }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ModuleDefinition(String code,String name,String description) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record WorkflowAction(String code,String label,List<String> from,String to,String requiredRole) {}
 }

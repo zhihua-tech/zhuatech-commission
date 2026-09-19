@@ -5,8 +5,20 @@ import cn.zhuatech.commission.model.CommissionRun;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 public interface CommissionRunRepository extends JpaRepository<CommissionRun,Long> {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     Optional<CommissionRun> findByRunNo(String runNo);
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     List<CommissionRun> findAllByOrderByUpdatedAtDesc();
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     long countByState(String state);
 }

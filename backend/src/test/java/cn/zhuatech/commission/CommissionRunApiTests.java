@@ -13,11 +13,17 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 class CommissionRunApiTests {
     @Autowired MockMvc mvc;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void tieredCalculationApprovalPayoutAndClawbackFormClosedLoop() throws Exception {
         long id=create("COMM-RUN-001",800000,3,500000,5,30000,0,true,true,true);
@@ -42,6 +48,9 @@ class CommissionRunApiTests {
             .andExpect(jsonPath("$.data.clawbackAmount").value(5000));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void capAndGovernanceControlsAreEnforced() throws Exception {
         long id=create("COMM-RUN-CAP",2000000,5,100000,10,50000,2,true,true,true);
@@ -54,6 +63,9 @@ class CommissionRunApiTests {
             .andExpect(status().isOk()).andExpect(jsonPath("$.data.calculatedAmount").isNumber());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void unapprovedPlanAndExcessiveClawbackAreRejected() throws Exception {
         long blocked=create("COMM-RUN-BLOCK",100000,3,100000,3,10000,0,false,true,true);
@@ -74,6 +86,9 @@ class CommissionRunApiTests {
             .andExpect(status().isConflict());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void calculatedCommissionSupportsValidatedMultiBeneficiaryAllocation() throws Exception {
         long id=create("COMM-RUN-SPLIT",800000,3,500000,5,60000,0,true,true,true);
@@ -95,6 +110,9 @@ class CommissionRunApiTests {
             .andExpect(status().isOk()).andExpect(jsonPath("$.data.state").value("PENDING_REVIEW"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private long create(String no,double revenue,double base,double threshold,double accelerator,double cap,
             int disputes,boolean approved,boolean locked,boolean compliance)throws Exception{
         var result=mvc.perform(post("/api/commission/runs").with(httpBasic("operator","operator123"))
