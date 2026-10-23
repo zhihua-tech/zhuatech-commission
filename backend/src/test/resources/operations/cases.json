@@ -1,0 +1,53 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "targetClawback": "#400",
+      "recoverNow": "#300",
+      "carryForward": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "currentPayable": "100"
+    },
+    "expected": {
+      "decision": "REVIEW",
+      "carryForward": "#200"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "cancelledRevenue": "0"
+    },
+    "expected": {
+      "decision": "PASS",
+      "recoverNow": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "cancelledRevenue": "10001"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "originalRevenue": "0"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "alreadyClawed": "1001"
+    },
+    "expected": {},
+    "error": true
+  }
+]
